@@ -6,6 +6,7 @@
     state: latest
   become: yes
   with_items:
+    - Cython
     - python2-matplotlib
     - python2-numpy
 
