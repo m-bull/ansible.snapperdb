@@ -6,6 +6,6 @@ Ansible playbook for installing https://github.com/phe-bioinformatics/snapperdb
 Setup SNP database configs with `vars/main.yml`
 
 TODO:
-
 Postgres auth config
+
 Snapperdb database templates
