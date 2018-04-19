@@ -1,6 +1,6 @@
 snapperdbs:
   - snpdb_name: cdiff_snps
-    reference_genome:
+    reference_genome: CP011968
     pg_host: localhost
     depth_cutoff: 10
     mq_cutoff: 30

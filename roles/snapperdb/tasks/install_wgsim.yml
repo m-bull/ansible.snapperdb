@@ -1,0 +1,21 @@
+---
+
+- name: Clone wgsim repo
+  git:
+    repo: "{{ wgsim_repo }}"
+    dest: /tmp/wgsim
+
+- name: Make wgsim
+  command: "gcc -g -O2 -Wall -o wgsim wgsim.c -lz -lm"
+  args:
+    chdir: /tmp/wgsim
+    creates: "{{ path_dir }}/wgsim"
+  become: yes
+
+- name: Copy wgsim into path directory
+  copy:
+    src: /tmp/wgsim/wgsim
+    dest: "{{ path_dir }}/wgsim"
+    mode: 0755
+    remote_src: yes
+  become: yes

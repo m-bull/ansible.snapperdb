@@ -21,6 +21,17 @@ samtools_install_dir: /usr/local/bin
 ## BWA
 bwa_repo: https://github.com/lh3/bwa.git
 
+## Bowtie2
+bowtie2_version: 2.3.4.1
+bowtie2_archive_url: https://github.com/BenLangmead/bowtie2/releases/download/v{{ bowtie2_version }}/bowtie2-{{ bowtie2_version }}-linux-x86_64.zip
+bowtie2_install_dir: /usr/local/bin
+
+## wgsim
+wgsim_repo: https://github.com/lh3/wgsim
+
+##
+phenix_version: 1.4.1
+
 ## SnapperDB
 snapperdb_version: 1.0.4
 confpath: /home/centos/snapperdb-conf

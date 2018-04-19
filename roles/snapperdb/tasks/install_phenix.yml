@@ -1,0 +1,24 @@
+---
+
+- name: "Install PHEnix deps with yum"
+  yum:
+    name: "{{ item }}"
+    state: latest
+  become: yes
+  with_items:
+    - python2-matplotlib
+    - python2-numpy
+
+- name: "Install PHEnix deps with pip"
+  pip:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  with_items:
+    - bintrees
+
+- name: "Install PHEnix with pip"
+  pip:
+    name: PHEnix
+    version: "{{ phenix_version }}"
+  become: yes

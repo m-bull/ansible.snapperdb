@@ -1,0 +1,17 @@
+---
+
+- name: "Install bowtie2"
+  unarchive:
+    src: "{{ bowtie2_archive_url }}"
+    dest: "{{ bowtie2_install_dir }}"
+    remote_src: yes
+  become: yes
+
+- name: "Link bowtie2 executables"
+  file:
+    state: link
+    src: "{{ bowtie2_install_dir }}/bowtie2-{{ bowtie2_version }}-linux-x86_64/{{ item }}"
+    dest: "{{ path_dir }}/{{ item }}"
+  become: yes
+  with_items:
+    - bowtie2
