@@ -26,6 +26,6 @@ snapperdb_version: 1.0.4
 confpath: /home/centos/snapperdb-conf
 refpath: /home/centos/snapperdb-ref
 
-################################ Database users #############################################
+################################ Database users ####################################################
 
 pg_uname: snapperdb
