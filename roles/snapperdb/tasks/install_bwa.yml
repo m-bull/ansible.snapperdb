@@ -1,0 +1,21 @@
+---
+
+- name: Clone BWA repo
+  git:
+    repo: "{{ bwa_repo }}"
+    dest: /tmp/bwa
+
+- name: Make bwa
+  command: make
+  args:
+    chdir: /tmp/bwa
+    creates: "{{ path_dir }}/bwa"
+  become: yes
+
+- name: Copy BWA into path directory
+  copy:
+    src: /tmp/bwa/bwa
+    dest: "{{ path_dir }}/bwa"
+    mode: 0755
+    remote_src: yes
+  become: yes

@@ -1,0 +1,12 @@
+---
+- debug:
+    msg: "pg_password = {{ pg_pword }}"
+
+- name: "Create snapperDB postgres user"
+  postgresql_user:
+    name: "{{ pg_uname }}"
+    password: "{{ pg_pword }}"
+    role_attr_flags: SUPERUSER
+  become: yes
+  become_user: postgres
+  when: pg_pword is defined

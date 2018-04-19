@@ -1,0 +1,31 @@
+---
+
+############################### Dependencies and paths #############################################
+
+path_dir: /usr/local/bin
+
+## GATK
+GATK_install_dir: /opt/
+GATK_archive_url: https://software.broadinstitute.org/gatk/download/auth?package=GATK-archive&version=3.8-1-0-gf15c1c3ef
+
+## Picard
+picard_version: 2.18.2 
+picard_install_dir: /opt/picard-{{ picard_version }}
+picard_archive_url: https://github.com/broadinstitute/picard/releases/download/{{ picard_version }}/picard.jar
+
+## Samtools
+samtools_version: 1.8
+samtools_archive_url: https://github.com/samtools/samtools/releases/download/{{ samtools_version }}/samtools-{{ samtools_version }}.tar.bz2
+samtools_install_dir: /usr/local/bin
+
+## BWA
+bwa_repo: https://github.com/lh3/bwa.git
+
+## SnapperDB
+snapperdb_version: 1.0.4
+confpath: /home/centos/snapperdb-conf
+refpath: /home/centos/snapperdb-ref
+
+################################ Database users #############################################
+
+pg_uname: snapperdb

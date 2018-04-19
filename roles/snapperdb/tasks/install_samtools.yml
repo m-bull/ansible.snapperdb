@@ -1,0 +1,23 @@
+---
+
+- name: "Download Samtools"
+  unarchive:
+    src: "{{ samtools_archive_url }}"
+    dest: "{{ samtools_install_dir }}"
+    remote_src: yes
+  become: yes
+
+- name: Make Samtools
+  command: make
+  args:
+    chdir: "{{ samtools_install_dir }}/samtools-{{ samtools_version }}"
+    creates: "{{ path_dir }}/samtools-{{ samtools_version }}/samtools"
+  become: yes
+
+- name: Link samtools binaries into PATH
+  file:
+    state: link
+    src: "{{ samtools_install_dir }}/samtools-{{ samtools_version }}/samtools"
+    dest: "{{ path_dir }}/samtools"
+  become: yes
+

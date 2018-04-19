@@ -1,0 +1,27 @@
+---
+
+- name: "Make picard install dir"
+  file:
+    state: directory
+    path: "{{ picard_install_dir }}"
+  become: yes
+
+- name: "Get Picard jar"
+  get_url:
+    url: "{{ picard_archive_url }}"
+    dest: "{{ picard_install_dir }}/picard.jar"
+  become: yes
+
+- name: "Find path to picard jar"
+  find:
+    paths: "{{ picard_install_dir }}"
+    recurse: yes
+    patterns: "picard.jar"
+  register: picard_jar_path
+
+- name: "Set environment variable pointing to picard jar"
+  lineinfile:
+    state: present
+    path: /etc/environment
+    line: "export PICARD_JAR={{ picard_jar_path.files[0].path }}"
+  become: yes

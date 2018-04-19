@@ -1,0 +1,12 @@
+snapperdbs:
+  - snpdb_name: cdiff_snps
+    reference_genome:
+    pg_host: localhost
+    depth_cutoff: 10
+    mq_cutoff: 30
+    ad_cutoff: 0.9
+    average_depth_cutoff: 30
+    mapper: bwa
+    mapper_threads: 4
+    variant_caller: gatk
+    variant_caller_threads: 4

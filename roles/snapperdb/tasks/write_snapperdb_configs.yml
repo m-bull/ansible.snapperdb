@@ -1,0 +1,25 @@
+---
+
+- name: "Make directories for ref genomes and configs"
+  file:
+    state: directory
+    path: "{{ item }}"
+  with_items:
+    - "{{ confpath }}"
+    - "{{ refpath }}"
+
+- name: "Set environment variables for ref genomes and configs"
+  lineinfile:
+    path: /etc/environment
+    state: present
+    line: "{{ item }}"
+  become: yes
+  with_items:
+    - "export GASTROSNAPPER_CONFPATH={{ confpath }}"
+    - "export GASTROSNAPPER_REFPATH={{ refpath }}"
+
+- name: "Write snapperDB configs for all dbs listed in vars"
+  template:
+    src: snapperdb_config.txt.j2
+    dest: "{{ confpath }}/{{ item.snpdb_name }}.txt"
+  with_items: "{{ snapperdbs }}"

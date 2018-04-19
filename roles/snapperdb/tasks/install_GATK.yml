@@ -1,0 +1,23 @@
+---
+
+- name: "Get GATK archive"
+  unarchive:
+    src: "{{ GATK_archive_url }}"
+    dest: "{{ GATK_install_dir }}"
+    remote_src: yes
+    list_files: yes
+  become: yes
+
+- name: "Find path to GATK jar"
+  find:
+    paths: "{{ GATK_install_dir }}"
+    recurse: yes
+    patterns: "GenomeAnalysisTK.jar"
+  register: GATK_jar_path
+
+- name: "Set environment variable pointing to GATK jar"
+  lineinfile:
+    state: present
+    path: /etc/environment
+    line: "export GATK_JAR={{ GATK_jar_path.files[0].path }}"
+  become: yes

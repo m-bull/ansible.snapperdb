@@ -1,0 +1,33 @@
+---
+
+- name: "Add postgres yum repo"
+  yum:
+    name: "https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm"
+    state: present
+  become: yes
+
+- name: "Install postgres packages"
+  yum:
+    name: "{{ item }}"
+    state: latest
+  become: yes
+  with_items:
+    - postgresql96
+    - postgresql96-server
+
+- stat:
+    path: "/var/lib/pgsql/9.6/initdb.log"
+  register: pginit
+  become: yes
+
+- name: "initialize postgres database"
+  command: "/usr/pgsql-9.6/bin/postgresql96-setup initdb"
+  become: yes
+  when: pginit.stat.exists == False
+
+- name: "Start and enable postgres service"
+  systemd:
+    name: postgresql-9.6
+    state: started
+    enabled: True
+  become: yes

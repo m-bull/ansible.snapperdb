@@ -1,0 +1,7 @@
+---
+
+- name: "Install SnapperDB with pip"
+  pip:
+    name: snapperdb
+    version: "{{ snapperdb_version }}"
+  become: yes

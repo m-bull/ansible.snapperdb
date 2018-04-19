@@ -1,0 +1,15 @@
+---
+
+- name: Install Ubuntu packages required for building Shovill dependencies
+  apt:
+    name: "{{ item }}"
+    state: latest
+  become: yes
+  with_items:
+    - libbz2-dev
+    - libncurses5-dev
+    - liblz-dev
+    - liblzma-dev
+    - openjdk-9-jdk-headless
+    - unzip
+    - zlib1g-dev
