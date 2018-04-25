@@ -37,6 +37,15 @@ snapperdb_version: 1.0.4
 confpath: /home/centos/snapperdb-conf
 refpath: /home/centos/snapperdb-ref
 
+## PostgreSQL
+postgres_version: 9.6
+postgres_repo_rpm: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+postgres_centos_rpms:
+  - postgresql{{ postgres_version|replace('.', '') }}
+  - postgresql{{ postgres_version|replace('.', '') }}-server
+  - postgresql{{ postgres_version|replace('.', '') }}-contrib
+
+
 ################################ Database users ####################################################
 
 pg_uname: snapperdb
