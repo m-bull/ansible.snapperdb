@@ -1,6 +1,7 @@
 ---
 - debug:
     msg: "pg_password = {{ pg_pword }}"
+  when: pg_pword is defined
 
 - name: "Create snapperDB postgres user"
   postgresql_user:

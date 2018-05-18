@@ -1,5 +1,12 @@
 ---
 
+- name: Remove wgsim binary
+  file:
+    state: absent
+    path: "{{ path_dir }}/wgsim"
+  become: yes
+  when: wgsim_always_replace
+
 - name: Clone wgsim repo
   git:
     repo: "{{ wgsim_repo }}"
@@ -11,6 +18,7 @@
     chdir: /tmp/wgsim
     creates: "{{ path_dir }}/wgsim"
   become: yes
+  register: make_wgsim
 
 - name: Copy wgsim into path directory
   copy:
@@ -19,3 +27,4 @@
     mode: 0755
     remote_src: yes
   become: yes
+  when: make_wgsim is changed

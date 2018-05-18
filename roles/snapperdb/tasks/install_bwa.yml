@@ -1,21 +1,37 @@
 ---
 
-- name: Clone BWA repo
+- name: "Remove bwa binary"
+  file:
+    state: absent
+    path: "{{ path_dir }}/bwa"
+  become: yes
+  when: bwa_always_replace
+
+- name: "Make sure /tmp/bwa doesn't exist"
+  file:
+    state: absent
+    path: /tmp/bwa
+
+- name: "Clone BWA repo"
   git:
     repo: "{{ bwa_repo }}"
     dest: /tmp/bwa
+    force: yes
 
-- name: Make bwa
+- name: "Make bwa"
   command: make
   args:
     chdir: /tmp/bwa
     creates: "{{ path_dir }}/bwa"
   become: yes
+  register: make_bwa
 
-- name: Copy BWA into path directory
+- name: "Copy BWA into path directory"
   copy:
     src: /tmp/bwa/bwa
     dest: "{{ path_dir }}/bwa"
     mode: 0755
     remote_src: yes
   become: yes
+  when: make_bwa is changed
+

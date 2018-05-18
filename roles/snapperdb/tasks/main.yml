@@ -17,5 +17,6 @@
 - include_tasks: install_wgsim.yml
 - include_tasks: install_bowtie2.yml
 - include_tasks: install_snapperdb.yml
-- include_tasks: write_snapperdb_configs.yml
+- include_tasks: create_snapperdb_postgres_user.yml
+- include_tasks: configure_postgres.yml
 - include_tasks: create_snapperdb_postgres_user.yml

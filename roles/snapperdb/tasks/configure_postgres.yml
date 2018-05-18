@@ -1,2 +1,19 @@
 ---
 
+- name: "Create postgresql conf file"
+  template:
+    src: postgres/postgresql.conf.j2
+    dest: "/var/lib/pgsql/{{ postgres_version }}/data/postgresql.conf"
+    owner: postgres
+    group: postgres
+    mode: 0600
+  become: yes
+
+- name: "Create postgresql pg_hba file"
+  template:
+    src: postgres/pg_hba.conf.j2
+    dest: "/var/lib/pgsql/{{ postgres_version }}/data/pg_hba.conf"
+    owner: postgres
+    group: postgres
+    mode: 0600
+  become: yes

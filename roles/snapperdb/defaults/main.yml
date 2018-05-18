@@ -19,6 +19,7 @@ samtools_archive_url: https://github.com/samtools/samtools/releases/download/{{ 
 samtools_install_dir: /usr/local/bin
 
 ## BWA
+bwa_always_replace: False
 bwa_repo: https://github.com/lh3/bwa.git
 
 ## Bowtie2
@@ -27,9 +28,11 @@ bowtie2_archive_url: https://github.com/BenLangmead/bowtie2/releases/download/v{
 bowtie2_install_dir: /usr/local/bin
 
 ## wgsim
+wgsim_always_replace: False
 wgsim_repo: https://github.com/lh3/wgsim
 
-##
+
+## PHEnix
 phenix_version: 1.4.1
 
 ## SnapperDB
@@ -46,6 +49,10 @@ postgres_centos_rpms:
   - postgresql{{ postgres_version|replace('.', '') }}-contrib
 
 
-################################ Database users ####################################################
+################################ PostgreSQL config ##################################################
+pg_listen_addresses: localhost
+
+
+################################ SnapperDB users ####################################################
 
 pg_uname: snapperdb
