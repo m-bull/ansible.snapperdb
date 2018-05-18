@@ -8,6 +8,7 @@
     group: postgres
     mode: 0600
   become: yes
+  register: postgresql_conf
 
 - name: "Create postgresql pg_hba file"
   template:
@@ -17,3 +18,11 @@
     group: postgres
     mode: 0600
   become: yes
+  register: pg_hba_conf
+
+- name: "Restart postgresql on config change"
+  systemd:
+    state: restarted
+    name: postgresql-{{ postgres_version }}
+  become: yes
+  when: postgresql_conf.changed or pg_hba_conf.changed 

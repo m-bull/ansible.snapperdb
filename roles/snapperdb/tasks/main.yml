@@ -1,24 +1,26 @@
 ---
 
-- include_tasks: install_ubuntu_packages.yml
-  when: ansible_distribution == 'Ubuntu'
+#- include_tasks: install_ubuntu_packages.yml
+#  when: ansible_distribution == 'Ubuntu'
 
-- include_tasks: install_centos_packages.yml
-  when: ansible_distribution == 'CentOS'
+#- include_tasks: install_centos_packages.yml
+#  when: ansible_distribution == 'CentOS'
 
-- include_tasks: install_postgres.yml
-  when: ansible_distribution == 'CentOS'
+#- include_tasks: install_postgres.yml
+#  when: ansible_distribution == 'CentOS'
 
-- include_tasks: install_phenix.yml
-- include_tasks: install_samtools.yml
-- include_tasks: install_bwa.yml
-- include_tasks: install_GATK.yml
-- include_tasks: install_picard.yml
-- include_tasks: install_wgsim.yml
-- include_tasks: install_bowtie2.yml
+#- include_tasks: install_phenix.yml
+#- include_tasks: install_samtools.yml
+#- include_tasks: install_bwa.yml
+#- include_tasks: install_GATK.yml
+#- include_tasks: install_picard.yml
+#- include_tasks: install_wgsim.yml
+#- include_tasks: install_bowtie2.yml
 - include_tasks: install_snapperdb.yml
-- include_tasks: create_snapperdb_postgres_user.yml
+
 - include_tasks: configure_postgres.yml
 - include_tasks: create_snapperdb_postgres_user.yml
 
 - include_tasks: write_snapperdb_configs.yml
+
+
