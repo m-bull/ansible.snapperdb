@@ -10,3 +10,4 @@ snapperdbs:
     mapper_threads: 4
     variant_caller: gatk
     variant_caller_threads: 4
+
