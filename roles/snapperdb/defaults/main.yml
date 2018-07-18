@@ -54,5 +54,5 @@ pg_listen_addresses: localhost
 
 
 ################################ SnapperDB users ####################################################
-
+pg_pword: M2ZkMDJjNDVjY2NiNmQgIFJFQUR
 pg_uname: snapperdb

@@ -1,6 +1,6 @@
 snapperdbs:
-  - snpdb_name: cdiff_snps
-    reference_genome: CP011968
+  - snpdb_name: RT001_BI9
+    reference_genome: RT001_BI9
     pg_host: localhost
     depth_cutoff: 10
     mq_cutoff: 30
@@ -10,4 +10,124 @@ snapperdbs:
     mapper_threads: 4
     variant_caller: gatk
     variant_caller_threads: 4
-
+  - snpdb_name: RT001_Liv24
+    reference_genome: RT001_Liv24
+    pg_host: localhost
+    depth_cutoff: 10
+    mq_cutoff: 30
+    ad_cutoff: 0.9
+    average_depth_cutoff: 30
+    mapper: bwa
+    mapper_threads: 4
+    variant_caller: gatk
+    variant_caller_threads: 4
+  - snpdb_name: RT002_TL178
+    reference_genome: RT002_TL178
+    pg_host: localhost
+    depth_cutoff: 10
+    mq_cutoff: 30
+    ad_cutoff: 0.9
+    average_depth_cutoff: 30
+    mapper: bwa
+    mapper_threads: 4
+    variant_caller: gatk
+    variant_caller_threads: 4
+  - snpdb_name: RT012_CD630_chr_V12
+    reference_genome: RT012_CD630_chr_V12
+    pg_host: localhost
+    depth_cutoff: 10
+    mq_cutoff: 30
+    ad_cutoff: 0.9
+    average_depth_cutoff: 30
+    mapper: bwa
+    mapper_threads: 4
+    variant_caller: gatk
+    variant_caller_threads: 4
+  - snpdb_name: RT014_TL176_v3
+    reference_genome: RT014_TL176_v3
+    pg_host: localhost
+    depth_cutoff: 10
+    mq_cutoff: 30
+    ad_cutoff: 0.9
+    average_depth_cutoff: 30
+    mapper: bwa
+    mapper_threads: 4
+    variant_caller: gatk
+    variant_caller_threads: 4
+  - snpdb_name: RT015_TL174
+    reference_genome: RT015_TL174
+    pg_host: localhost
+    depth_cutoff: 10
+    mq_cutoff: 30
+    ad_cutoff: 0.9
+    average_depth_cutoff: 30
+    mapper: bwa
+    mapper_threads: 4
+    variant_caller: gatk
+    variant_caller_threads: 4
+  - snpdb_name: RT017_CF5
+    reference_genome: RT017_CF5
+    pg_host: localhost
+    depth_cutoff: 10
+    mq_cutoff: 30
+    ad_cutoff: 0.9
+    average_depth_cutoff: 30
+    mapper: bwa
+    mapper_threads: 4
+    variant_caller: gatk
+    variant_caller_threads: 4
+  - snpdb_name: RT017_M68
+    reference_genome: RT017_M68
+    pg_host: localhost
+    depth_cutoff: 10
+    mq_cutoff: 30
+    ad_cutoff: 0.9
+    average_depth_cutoff: 30
+    mapper: bwa
+    mapper_threads: 4
+    variant_caller: gatk
+    variant_caller_threads: 4
+  - snpdb_name: RT023_CD305
+    reference_genome: RT023_CD305
+    pg_host: localhost
+    depth_cutoff: 10
+    mq_cutoff: 30
+    ad_cutoff: 0.9
+    average_depth_cutoff: 30
+    mapper: bwa
+    mapper_threads: 4
+    variant_caller: gatk
+    variant_caller_threads: 4
+  - snpdb_name: RT027_CD196
+    reference_genome: RT027_CD196
+    pg_host: localhost
+    depth_cutoff: 10
+    mq_cutoff: 30
+    ad_cutoff: 0.9
+    average_depth_cutoff: 30
+    mapper: bwa
+    mapper_threads: 4
+    variant_caller: gatk
+    variant_caller_threads: 4
+  - snpdb_name: RT078_CDM120
+    reference_genome: RT078_CDM120
+    pg_host: localhost
+    depth_cutoff: 10
+    mq_cutoff: 30
+    ad_cutoff: 0.9
+    average_depth_cutoff: 30
+    mapper: bwa
+    mapper_threads: 4
+    variant_caller: gatk
+    variant_caller_threads: 4
+  - snpdb_name: RT106_Liv22
+    reference_genome: RT106_Liv22
+    pg_host: localhost
+    depth_cutoff: 10
+    mq_cutoff: 30
+    ad_cutoff: 0.9
+    average_depth_cutoff: 30
+    mapper: bwa
+    mapper_threads: 4
+    variant_caller: gatk
+    variant_caller_threads: 4
