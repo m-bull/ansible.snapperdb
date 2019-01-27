@@ -31,7 +31,6 @@
   become: yes
   vars:
     packages:
-      - python2-biopython
       - python-psycopg2
       - python-paramiko
 
@@ -41,5 +40,7 @@
   become: yes
   vars:
     packages:
+      - numpy
+      - Biopython
       - hashids
       - joblib
