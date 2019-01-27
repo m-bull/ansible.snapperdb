@@ -5,19 +5,19 @@
     name: git+https://github.com/m-bull/snapperdb
   become: yes
 
-- name: "Check template_snapperdb_denovo_refs_sql exists"
-  stat:
-    path: "/usr/lib/python2.7/site-packages/snapperdb/snpdb/template_snapperdb_denovo_refs_sql"
-  register: sql_template
+#- name: "Check template_snapperdb_denovo_refs_sql exists"
+#  stat:
+#    path: "/usr/lib/python2.7/site-packages/snapperdb/snpdb/template_snapperdb_denovo_refs_sql"
+#  register: sql_template
 
-- name: "Copy template_snapperdb_denovo_refs_sql - https://github.com/phe-bioinformatics/snapperdb/pull/14"
-  copy:
-    src: template_snapperdb_denovo_refs_sql
-    dest: "/usr/lib/python2.7/site-packages/snapperdb/snpdb/template_snapperdb_denovo_refs_sql"
-    owner: root
-    group: root
-    mode: 0644     
-  become: yes
-  when: sql_template.stat.exists == False
+#- name: "Copy template_snapperdb_denovo_refs_sql - https://github.com/phe-bioinformatics/snapperdb/pull/14"
+#  copy:
+#    src: template_snapperdb_denovo_refs_sql
+#    dest: "/usr/lib/python2.7/site-packages/snapperdb/snpdb/template_snapperdb_denovo_refs_sql"
+#    owner: root
+#    group: root
+#    mode: 0644     
+#  become: yes
+#  when: sql_template.stat.exists == False
 
   
