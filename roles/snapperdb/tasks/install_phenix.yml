@@ -8,8 +8,6 @@
   vars:
     packages:
       - Cython
-      - python2-matplotlib
-      - python2-numpy
 
 - name: "Install PHEnix deps with pip"
   pip:
@@ -18,6 +16,7 @@
   become: yes
   vars:
     packages:
+      - numpy
       - bintrees
 
 - name: "Install PHEnix with pip"
