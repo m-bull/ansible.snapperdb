@@ -16,7 +16,12 @@
 - include_tasks: install_picard.yml
 - include_tasks: install_wgsim.yml
 - include_tasks: install_bowtie2.yml
-- include_tasks: install_snapperdb.yml
+
+- include_tasks: install_snapperdb_pip.yml
+  when: snapperdb_pip
+
+- include_tasks: install_snapperdb_github.yml
+  when: not snapperdb_pip
 
 - include_tasks: configure_postgres.yml
 - include_tasks: create_snapperdb_postgres_user.yml

@@ -8,35 +8,38 @@
 
 - name: Install CentOS packages required for building SnapperDB dependencies
   yum:
-    name: "{{ item }}"
+    name: "{{ packages }}"
     state: latest
   become: yes
-  with_items:
-    - bzip2
-    - bzip2-devel
-    - gcc-c++
-    - java-1.8.0-openjdk-headless
-    - ncurses-devel
-    - python2-pip
-    - unzip
-    - wget
-    - xz-devel
-    - zlib-devel
+  vars:
+    packages:
+      - bzip2
+      - bzip2-devel
+      - gcc-c++
+      - java-1.8.0-openjdk-headless
+      - ncurses-devel
+      - python2-pip
+      - unzip
+      - wget
+      - xz-devel
+      - zlib-devel
 
 - name: Install required python packages from yum
   yum:
-    name: "{{ item }}"
+    name: "{{ packages }}"
     state: latest
   become: yes
-  with_items:
-    - python2-biopython
-    - python-psycopg2
-    - python-paramiko
+  vars:
+    packages:
+      - python2-biopython
+      - python-psycopg2
+      - python-paramiko
 
 - name: Install required python packages from pip
   pip: 
-    name: "{{ item }}"
+    name: "{{ packages }}"
   become: yes
-  with_items:
-    - hashids
-    - joblib
+  vars:
+    packages:
+      - hashids
+      - joblib

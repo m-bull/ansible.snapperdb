@@ -1,9 +1,8 @@
 ---
 
-- name: "Install SnapperDB with pip"
+- name: "Install SnapperDB from github with pip"
   pip:
-    name: snapperdb
-    version: "{{ snapperdb_version }}"
+    name: git+https://github.com/m-bull/snapperdb
   become: yes
 
 - name: "Check template_snapperdb_denovo_refs_sql exists"
@@ -20,4 +19,5 @@
     mode: 0644     
   become: yes
   when: sql_template.stat.exists == False
+
   

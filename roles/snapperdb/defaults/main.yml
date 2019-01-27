@@ -36,6 +36,8 @@ wgsim_repo: https://github.com/lh3/wgsim
 phenix_version: 1.4.1
 
 ## SnapperDB
+snapperdb_pip: false
+snapperdb_repo: https://github.com/m-bull/snapperdb
 snapperdb_version: 1.0.4
 confpath: /home/centos/snapperdb-conf
 refpath: /home/centos/snapperdb-ref

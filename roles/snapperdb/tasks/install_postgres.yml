@@ -8,11 +8,9 @@
 
 - name: "Install postgres packages"
   yum:
-    name: "{{ item }}"
+    name: "{{ postgres_centos_rpms }}"
     state: latest
   become: yes
-  with_items:
-    "{{ postgres_centos_rpms }}"
 
 - stat:
     path: "/var/lib/pgsql/{{ postgres_version }}/initdb.log"
